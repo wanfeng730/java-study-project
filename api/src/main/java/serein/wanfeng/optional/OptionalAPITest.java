@@ -131,4 +131,19 @@ public class OptionalAPITest {
         BorrowItem borrowItem = borrowItemOptional.get();
     }
 
+    @Test
+    public void useInDevelop(){
+        //对象判空
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Optional.ofNullable(wenshuArchive).ifPresent(archive -> {
+            archive.setName("文书档案（判空测试）");
+        });
+
+        Archive nullArchive = null;
+        Optional.ofNullable(nullArchive).ifPresent(archive -> {
+            archive.setName("文书档案（判空测试）");
+        });
+
+    }
+
 }
