@@ -18,7 +18,9 @@ public class FastJsonAPITest {
             "    \"name\": \"amberdata\",\n" +
             "    \"code\": \"AM\",\n" +
             "    \"array\": [\n" +
-            "      1, 4, 5\n" +
+            "      {\"id\": 3, \"code\": 4},\n" +
+            "      {\"id\": 6, \"code\": 8}\n" +
+            "      \n" +
             "    ],\n" +
             "    \"type\": {\n" +
             "      \"name\": \"互联网软件\",\n" +
