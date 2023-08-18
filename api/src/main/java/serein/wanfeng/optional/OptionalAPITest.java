@@ -7,6 +7,7 @@ import org.junit.Test;
 import serein.wanfeng.entity.Archive;
 import serein.wanfeng.entity.BorrowItem;
 import serein.wanfeng.exception.WanfengException;
+import serein.wanfeng.valueobject.ArchiveType;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +28,7 @@ public class OptionalAPITest {
      */
     @Test
     public void createOptionalObject(){
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Archive nullArchive = null;
 
         // Optional.of(T t) 创建一个Optional对象，t必须非空
@@ -46,7 +47,7 @@ public class OptionalAPITest {
      */
     @Test
     public void judgeOptionalExistObject(){
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Optional<Archive> wenshuOptional = Optional.ofNullable(wenshuArchive);
         Archive nullArchive = null;
         Optional<Archive> nullOptional = Optional.ofNullable(nullArchive);
@@ -72,7 +73,7 @@ public class OptionalAPITest {
      */
     @Test
     public void getOptionalObject(){
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Optional<Archive> wenshuOptional = Optional.ofNullable(wenshuArchive);
         Archive nullArchive = null;
         Optional<Archive> nullOptional = Optional.ofNullable(nullArchive);
@@ -86,13 +87,13 @@ public class OptionalAPITest {
         }
 
         //获取容器中的对象，若为空则返回other对象    optional.orElse(T other)
-        Archive wenshuElseArchive = wenshuOptional.orElse(new Archive("A002", "婚姻档案-1", "volume"));
-        Archive nullElseArchive = nullOptional.orElse(new Archive("A002", "婚姻档案-1", "volume"));
+        Archive wenshuElseArchive = wenshuOptional.orElse(new Archive("A002", "婚姻档案-1", ArchiveType.VOLUME));
+        Archive nullElseArchive = nullOptional.orElse(new Archive("A002", "婚姻档案-1", ArchiveType.VOLUME));
 
         //获取容器中的对象，若为空则返回接口实现提供的对象  optional.orElseGet(Supplier<? extends T> other)
         Archive nullElseGetArchive = nullOptional.orElseGet(() -> {
             String id = UUID.randomUUID().toString() + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            return new Archive(id, "新增档案-2", "record");
+            return new Archive(id, "新增档案-2", ArchiveType.VOLUME);
         });
 
         //获取容器中的对象，若为空则抛出Supplier接口实现提供的异常  optional.orElseThrow(Supplier<? extends X> exceptionSupplier)
@@ -110,7 +111,7 @@ public class OptionalAPITest {
      */
     @Test
     public void filterOptional(){
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Optional<Archive> wenshuOptional = Optional.ofNullable(wenshuArchive);
 
         //过滤type为"volume"的对象，若不匹配则optional中的对象被删除，optional为空
@@ -123,10 +124,10 @@ public class OptionalAPITest {
      */
     @Test
     public void mapOptional(){
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Optional<Archive> wenshuOptional = Optional.ofNullable(wenshuArchive);
 
-        Optional<BorrowItem> borrowItemOptional = wenshuOptional.map(archive -> new BorrowItem(archive.getId(), archive.getName(), archive.getType()));
+        Optional<BorrowItem> borrowItemOptional = wenshuOptional.map(archive -> new BorrowItem(archive.getId(), archive.getName(), archive.getType().asName()));
 
         BorrowItem borrowItem = borrowItemOptional.get();
     }
@@ -134,7 +135,7 @@ public class OptionalAPITest {
     @Test
     public void useInDevelop(){
         //对象判空
-        Archive wenshuArchive = new Archive("A001", "文书档案-1", "record");
+        Archive wenshuArchive = new Archive("A001", "文书档案-1", ArchiveType.RECORD);
         Optional.ofNullable(wenshuArchive).ifPresent(archive -> {
             archive.setName("文书档案（判空测试）");
         });
