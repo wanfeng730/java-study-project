@@ -3,6 +3,7 @@ package serein.wanfeng.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import serein.wanfeng.valueobject.ArchiveType;
 
 /**
@@ -13,6 +14,7 @@ import serein.wanfeng.valueobject.ArchiveType;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Archive {
     private String id;
     private String name;
