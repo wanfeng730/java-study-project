@@ -60,7 +60,7 @@ public class RemoteRegister {
             ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("rpc/wanfengrpc/src/main/resources/map.txt"));
             urlMap = (Map<String, List<URL>>) objectInputStream.readObject();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("服务发现失败，请检查服务是否注册！");
         }
     }
 
