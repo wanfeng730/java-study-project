@@ -6,6 +6,7 @@ import serein.wanfeng.entity.Archive;
 import serein.wanfeng.loadbalance.LoadBalanceStrategy;
 import serein.wanfeng.protocol.HttpClient;
 import serein.wanfeng.register.RemoteRegister;
+import serein.wanfeng.valueobject.ArchiveType;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -24,6 +25,11 @@ public class ProxyFactory {
         Object proxyInstance = Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) {
+                String mock = System.getProperty("mock");
+                if(mock.startsWith("return")){
+                    return new Archive("000", mock.replace("return:", ""), ArchiveType.RECORD);
+                }
+
                 Invocation invocation = new Invocation(interfaceClass.getName(), method.getName(), method.getParameterTypes(), args);
 
                 //服务发现（获取接口名对应的url）
