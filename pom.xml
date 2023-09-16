@@ -19,6 +19,7 @@
       <module>rpc/commonservice</module>
     <module>rpc/provider</module>
       <module>rpc/wanfengrpc</module>
+      <module>redis-springboot</module>
   </modules>
 
   <properties>

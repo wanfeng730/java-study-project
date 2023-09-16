@@ -36,18 +36,18 @@ public class ProxyFactory {
                 //这里的Register与Provider应用不属于同一个进程，故会报NullException，此处是为了模拟远程服务注册和服务发现
                 //使用文件来存放注册中心的map，来代替远程
                 List<URL> urls = RemoteRegister.get(interfaceClass.getName());
-                List<URL> invokedURLs = new ArrayList<>();
+                List<URL> invokedUrls = new ArrayList<>();
 
                 Archive archive = null;
                 int max = 3;
                 while (max > 0) {
                     try {
                         //移除已调用的url
-                        urls.remove(invokedURLs);
+                        urls.remove(invokedUrls);
                         //负载均衡
                         URL url = LoadBalanceStrategy.random(urls);
                         //保存本次调用的url
-                        invokedURLs.add(url);
+                        invokedUrls.add(url);
 
                         HttpClient httpClient = new HttpClient();
                         archive = httpClient.send(url.getHostname(), url.getPort(), invocation);
