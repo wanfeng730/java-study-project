@@ -1,0 +1,5 @@
+minio:
+  endpoint: http://192.168.27.109:9000
+  rootUserName: wanfengminio
+  rootPassword: Lzh200127
+  bucketName: ectest

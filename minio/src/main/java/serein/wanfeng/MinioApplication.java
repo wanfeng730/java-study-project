@@ -1,4 +1,4 @@
-package serein.wanfeng.minio;
+package serein.wanfeng;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
