@@ -1,0 +1,13 @@
+笔记
+------------------------------------------------------
+
+
+
+
+deploy:
+  type: git
+  repo: https://github.com/sereinluo/sereinluo.github.io.git
+  branch: main
+
+github token: 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
+
