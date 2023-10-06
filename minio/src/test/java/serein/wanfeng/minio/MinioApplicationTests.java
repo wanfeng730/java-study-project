@@ -1,6 +1,8 @@
 package serein.wanfeng.minio;
 
+import ch.qos.logback.core.util.FileUtil;
 import io.minio.*;
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,6 +11,9 @@ import serein.wanfeng.constant.ServerConstant;
 import serein.wanfeng.factory.NumberFactory;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 @SpringBootTest
 public class MinioApplicationTests {
@@ -28,6 +33,9 @@ public class MinioApplicationTests {
                 .build();
     }
 
+    /**
+     * 本地文件上传
+     */
     @Test
     public void uploadFile(){
         try {
@@ -54,6 +62,27 @@ public class MinioApplicationTests {
         }
     }
 
+    /**
+     * 上传流
+     * @throws Exception
+     */
+    @Test
+    public void uploadInputStream() throws Exception {
+        File file = new File(UPLOAD_FOLDER_PATH + File.separator + IMAGE_FILE_NAME);
+        FileInputStream fileInputStream = new FileInputStream(file);
+
+        minioClient.putObject(PutObjectArgs.builder()
+                .bucket("ectest")
+                .object("image_" + NumberFactory.getRandomNumber(5) + ".jpg" )
+                .stream(fileInputStream, fileInputStream.available(), -1)
+                .build());
+
+        fileInputStream.close();
+    }
+
+    /**
+     * 下载文件
+     */
     @Test
     public void downloadFile(){
         try {
@@ -77,6 +106,25 @@ public class MinioApplicationTests {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+
+    @Test
+    public void downloadInputStream() throws Exception{
+        //获取流
+        InputStream inputStream = minioClient.getObject(GetObjectArgs.builder()
+                .bucket("ectest")
+                .object(IMAGE_FILE_NAME)
+                .build());
+        File file = new File(DOWNLOAD_FOLDER_PATH + File.separator + "image_aaa.jpg");
+        FileUtils.copyInputStreamToFile(inputStream, file);
+        inputStream.close();
+
+        //直接把流保存到本地文件
+        minioClient.downloadObject(DownloadObjectArgs.builder()
+                .bucket("ectest")
+                .object(IMAGE_FILE_NAME)
+                .filename(DOWNLOAD_FOLDER_PATH + File.separator + "image_bbb.jpg").build());
     }
 
 
