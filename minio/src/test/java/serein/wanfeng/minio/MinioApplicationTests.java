@@ -109,6 +109,9 @@ public class MinioApplicationTests {
     }
 
 
+    /**
+     * 下载流
+     */
     @Test
     public void downloadInputStream() throws Exception{
         //获取流
