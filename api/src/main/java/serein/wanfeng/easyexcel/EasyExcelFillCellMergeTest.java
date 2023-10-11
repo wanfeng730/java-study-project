@@ -20,7 +20,7 @@ import java.util.List;
  * @Description: EasyExcel API测试类
  */
 
-public class EasyExcelAPITest {
+public class EasyExcelFillCellMergeTest {
 
     public final static String[] ARCHIVE_FIELD = {
             "ID", "题名", "类型"

@@ -22,7 +22,7 @@ public class ArchiveFactory {
         List<Archive> archiveList = new ArrayList<>();
         archiveList.add(new Archive("A001", "杭州亚运会城市建设规划方案", ArchiveType.RECORD));
         archiveList.add(new Archive("A002", "义乌世博会展览主建筑设计方案", ArchiveType.RECORD));
-        archiveList.add(new Archive("A003", "关于促进台州府城墙旅游景区发展的决定", ArchiveType.VOLUME));
+        archiveList.add(new Archive("A003", "关于促进台州府城墙旅游景区发展的决定（换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试）", ArchiveType.VOLUME));
         return archiveList;
     }
 }
