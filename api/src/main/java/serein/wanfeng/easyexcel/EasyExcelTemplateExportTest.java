@@ -9,7 +9,7 @@ import org.apache.commons.compress.utils.Lists;
 import org.junit.Test;
 import org.springframework.core.io.DefaultResourceLoader;
 import serein.wanfeng.easyexcel.exportdata.ArchiveExportData;
-import serein.wanfeng.easyexcel.factory.ExcelCellStyleStrategyFactory;
+import serein.wanfeng.easyexcel.factory.ExcelStrategyFactory;
 import serein.wanfeng.entity.Archive;
 import serein.wanfeng.factory.ArchiveFactory;
 
@@ -74,18 +74,17 @@ public class EasyExcelTemplateExportTest {
              *  registerWriteHandler: 注册单元格策略
              */
             excelWriter = EasyExcel.write(exportExcelPath).withTemplate(templateFileInputStream)
-                    .registerWriteHandler(ExcelCellStyleStrategyFactory.getAutoWrapHorizontalCellStyleStrategy())
+                    .registerWriteHandler(ExcelStrategyFactory.getAutoWrapStrategy())
+                    .registerWriteHandler(ExcelStrategyFactory.getRowHeightSettingStrategy(35f))
                     .build();
-            // LzhTODO: 设置行高
             WriteSheet writeSheet = EasyExcel.writerSheet().build();
             /**
-             * 填充参数
+             * 填充配置
              *  direction：排列方向
-             *      WriteDirectionEnum.VERTICAL     纵向
-             *      WriteDirectionEnum.HORIZONTAL   横向
-             *  forceNewRow:
+             *      WriteDirectionEnum. VERTICAL     纵向
+             *      WriteDirectionEnum. HORIZONTAL   横向
              */
-            FillConfig fillConfig = FillConfig.builder().direction(WriteDirectionEnum.VERTICAL).forceNewRow(Boolean.TRUE).build();
+            FillConfig fillConfig = FillConfig.builder().direction(WriteDirectionEnum.VERTICAL).build();
             excelWriter.fill(exportDataList, fillConfig, writeSheet);
             System.out.println("导出文件：" + exportExcelPath);
         } finally {
