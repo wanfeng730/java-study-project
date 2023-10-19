@@ -31,7 +31,7 @@ public class BorrowFormImportInfo {
     /**
      * 借阅状态（枚举类转换）
      */
-    @ExcelProperty(value = "状态", converter = BorrowStatusConverter.class)
+    @ExcelProperty(value = "状态")
     private String borrowStatus;
     /**
      * 申请人类型（枚举类转换，01个人、02单位）

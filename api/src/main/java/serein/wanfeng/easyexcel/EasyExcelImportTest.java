@@ -2,14 +2,15 @@ package serein.wanfeng.easyexcel;
 
 import com.alibaba.excel.EasyExcel;
 import org.junit.Test;
+import org.springframework.util.ObjectUtils;
 import serein.wanfeng.easyexcel.infoclass.BorrowFormImportInfo;
 import serein.wanfeng.easyexcel.infoclass.BorrowItemImportInfo;
 
+import javax.security.auth.kerberos.KerberosTicket;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class EasyExcelImportTest {
 
-    public static final String BORROW_FORM_INFO_EXCEL_FILE_PATH = "src/main/resources/datafile/查档登记记录导入luozh测试.xls";
+    public static final String BORROW_FORM_INFO_EXCEL_FILE_PATH = "src/main/resources/datafile/查档登记记录导入测试.xls";
 
     @Test
     public void borrowFormInfoImportTest(){
@@ -55,19 +56,32 @@ public class EasyExcelImportTest {
         Map<String, List<BorrowItemImportInfo>> borrowItemInfoMap = borrowItemImportInfoList.stream().collect(Collectors.groupingBy(BorrowItemImportInfo::getImportBorrowingFormNo));
         //保存（保存完一条借阅单就从map中删除，以便筛选出编号匹配失败的数据）
         Set<String> importBorrowingFormNoSet = borrowFormInfoMap.keySet();
-        // LzhTODO: 删除map的key时出现并发修改异常，需要有时间时检查理解
-        importBorrowingFormNoSet.forEach(importBorrowingFormNo -> {
-            //该编号没有借阅档案
-            if(!borrowItemInfoMap.containsKey(importBorrowingFormNo)){
-                return;
-            }
-            BorrowFormImportInfo borrowFormInfo = borrowFormInfoMap.get(importBorrowingFormNo);
-            List<BorrowItemImportInfo> borrowItemInfoList = borrowItemInfoMap.get(importBorrowingFormNo);
-            //更新其他字段，保存
 
-            //从map中删除这条编号的所有数据
-            borrowFormInfoMap.remove(importBorrowingFormNo);
-            borrowItemInfoMap.remove(importBorrowingFormNo);
+        // 并发修改异常
+        ////使用hashmap原有的remove，会使modCount自增
+        //for (String s : borrowFormInfoMap.keySet()) {
+        //    if (!ObjectUtils.isEmpty(borrowItemInfoMap.get(s))){
+        //        borrowFormInfoMap.remove(s);
+        //        borrowItemInfoMap.remove(s);
+        //    }
+        //}
+
+        //解决方法有二：
+        //使用迭代器的map删除key要调用迭代器内置的删除方法
+        for(Iterator<String> iterator = borrowFormInfoMap.keySet().iterator(); iterator.hasNext();){
+            String key = iterator.next();
+            if(!ObjectUtils.isEmpty(borrowItemInfoMap.get(key))){
+                iterator.remove();
+                borrowItemInfoMap.remove(key);  //itemMap未使用迭代器，可以直接调用map原有的remove
+            }
+        }
+        //使用ConcurrentMap
+        ConcurrentHashMap<String, BorrowFormImportInfo> concurrentHashMap = new ConcurrentHashMap<>(borrowFormInfoMap);
+        concurrentHashMap.keySet().forEach(key -> {
+            concurrentHashMap.remove(key);
         });
+
+
+        System.out.println();
     }
 }
