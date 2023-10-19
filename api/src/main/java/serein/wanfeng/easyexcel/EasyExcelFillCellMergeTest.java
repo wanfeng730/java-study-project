@@ -6,7 +6,7 @@ import org.junit.Test;
 import serein.wanfeng.constant.PathConstant;
 import serein.wanfeng.easyexcel.stratery.ExcelFillRowCellMergeStrategy;
 import serein.wanfeng.entity.Archive;
-import serein.wanfeng.factory.ArchiveFactory;
+import serein.wanfeng.factory.ExampleDataFactory;
 import serein.wanfeng.factory.NumberFactory;
 
 import java.io.File;
@@ -39,7 +39,7 @@ public class EasyExcelFillCellMergeTest {
         //第二行：字段名
         data.add(Arrays.asList(ARCHIVE_FIELD));
         //第三行及以后：档案数据
-        List<Archive> archiveList = ArchiveFactory.generateExampleArchiveList();
+        List<Archive> archiveList = ExampleDataFactory.generateExampleArchiveList();
         archiveList.forEach(archive -> {
             data.add(Arrays.asList(
                     archive.getId(),

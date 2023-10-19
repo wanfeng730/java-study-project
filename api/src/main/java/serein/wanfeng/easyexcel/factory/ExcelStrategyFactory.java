@@ -1,6 +1,7 @@
 package serein.wanfeng.easyexcel.factory;
 
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
+import com.alibaba.excel.write.metadata.style.WriteFont;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import serein.wanfeng.easyexcel.stratery.ExcelRowHeightSettingStrategy;
@@ -37,6 +38,25 @@ public class ExcelStrategyFactory {
 
         //表头样式和表内容样式相同
         return new HorizontalCellStyleStrategy(writeCellStyle, writeCellStyle);
+    }
+
+    /**
+     * 设置注解导出时的样式
+     * @return 单元格样式策略
+     */
+    public static HorizontalCellStyleStrategy getAnnotationExportHeadCellStyleStrategy(){
+        //表头字体样式样式
+        WriteFont headFont = new WriteFont();
+        headFont.setFontHeightInPoints((short) 11);     //字体大小
+        //headFont.setItalic(Boolean.TRUE);               //是否斜体
+
+        WriteCellStyle headCellStyle = new WriteCellStyle();
+        headCellStyle.setWriteFont(headFont);
+
+        //内容样式
+        WriteCellStyle contentCellStyle = new WriteCellStyle();
+
+        return new HorizontalCellStyleStrategy(headCellStyle, contentCellStyle);
     }
 
     /**

@@ -1,5 +1,6 @@
 package serein.wanfeng.factory;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 /**
@@ -9,6 +10,7 @@ import java.util.Random;
  */
 
 public class NumberFactory {
+
 
     /**
      * 生成指定位数的随机数字符串
