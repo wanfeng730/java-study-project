@@ -1,0 +1,5 @@
+doc:
+  freemarker:
+    version: 2.7.17
+  template:
+    path: doctemplate/freework导出模板.xml

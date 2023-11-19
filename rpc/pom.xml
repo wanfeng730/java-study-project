@@ -17,10 +17,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>serein.wanfeng</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0</version>
-        </dependency>
+
     </dependencies>
 </project>

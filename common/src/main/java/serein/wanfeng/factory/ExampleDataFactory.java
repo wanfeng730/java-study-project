@@ -2,6 +2,7 @@ package serein.wanfeng.factory;
 
 import serein.wanfeng.entity.Archive;
 import serein.wanfeng.entity.BorrowItem;
+import serein.wanfeng.entity.ExportArchiveInfo;
 import serein.wanfeng.valueobject.ArchiveType;
 
 import java.time.LocalDateTime;
@@ -41,5 +42,13 @@ public class ExampleDataFactory {
             );
         }
         return borrowItemList;
+    }
+
+    public static List<ExportArchiveInfo> generateExportArchiveInfoList(){
+        List<ExportArchiveInfo> archiveInfoList = new ArrayList<>();
+        archiveInfoList.add(new ExportArchiveInfo("A001", "杭州亚运会城市建设规划方案1", "record"));
+        archiveInfoList.add(new ExportArchiveInfo("A002", "杭州亚运会城市建设规划方案2", "volume"));
+        archiveInfoList.add(new ExportArchiveInfo("A003", "杭州亚运会城市建设规划方案3", "volume_record"));
+        return archiveInfoList;
     }
 }
