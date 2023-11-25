@@ -8,7 +8,7 @@
       <option name="minLength" value="626" />
     </inspection_tool>
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="Date:,Author:,Description:" />
+      <option name="ADDITIONAL_TAGS" value="Date:,Author:,Description:,author:,date:,description:,since:" />
     </inspection_tool>
   </profile>
 </component>
