@@ -3,10 +3,7 @@ package serein.wanfeng.xdocreport;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import freemarker.template.Version;
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Value;
 import serein.wanfeng.factory.ExampleDataFactory;
 
 import java.io.*;
@@ -23,11 +20,7 @@ import java.util.Map;
  * @description:
  * @since:
  */
-public class XDocReportTest {
-
-
-    private String freeMarkerVersion = "2.3.32";
-
+public class FreeMarkerExportDocTest {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
     @Test
@@ -36,6 +29,7 @@ public class XDocReportTest {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("borrowNo", "20231119");
         dataMap.put("borrowPerson", "luozh");
+        // 导出列表的实体类一定要是public修饰的公共类，并且带有get方法
         dataMap.put("archiveList", ExampleDataFactory.generateExportArchiveInfoList());
 
         // 导出文件的路径
@@ -44,12 +38,12 @@ public class XDocReportTest {
         String templateName = "freemarker测试模版.ftl";
 
         // 设置FreeMarker的版本和编码格式
-        Configuration configuration = new Configuration(new Version(freeMarkerVersion));
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_30);
         configuration.setDefaultEncoding("UTF-8");
 
         // 设置FreeMarker生成Word文档所需要的模板的路径
         //      basePackagePath：模版文件的父级目录
-        configuration.setClassForTemplateLoading(XDocReportTest.class, "/doctemplate");
+        configuration.setClassForTemplateLoading(FreeMarkerExportDocTest.class, "/doctemplate");
 
         // 获取导出Word文档所需要的模板
         Template template = configuration.getTemplate(templateName, "UTF-8");
@@ -65,8 +59,6 @@ public class XDocReportTest {
         writer.flush();
         writer.close();
 
-        //删除临时文件
-        FileUtils.deleteQuietly(docFile);
-
     }
+
 }

@@ -1,9 +1,15 @@
 package serein.wanfeng.test;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
+import serein.wanfeng.entity.Archive;
+import serein.wanfeng.valueobject.ArchiveType;
 
+import java.lang.reflect.InvocationTargetException;
+import java.security.PublicKey;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -14,9 +20,8 @@ import java.util.stream.Collectors;
 
 public class DraftTest {
     @Test
-    public void test(){
-        List<String> idList = Arrays.asList("1", "3", "2");
-        List<String> sortIdList = idList.stream().sorted((o1, o2) -> - o1.compareTo(o2)).collect(Collectors.toList());
-        System.out.println(sortIdList);
+    public void test() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        Map describe = BeanUtils.describe(new Archive("1", "2", ArchiveType.RECORD));
+        System.out.println();
     }
 }
