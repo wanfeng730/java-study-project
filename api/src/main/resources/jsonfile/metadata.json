@@ -1,0 +1,462 @@
+{
+  "record": {
+    "version_no": "79",
+    "metadata_scheme_name": "文书档案(件)",
+    "block": [
+      {
+        "name": "归档信息",
+        "block": [
+          {
+            "name": "资源标识",
+            "property": [
+              {
+                "name": "archival_id",
+                "title": "档号",
+                "content": "12312"
+              },
+              {
+                "name": "article_number",
+                "title": "文号"
+              },
+              {
+                "name": "fonds_id",
+                "title": "全宗号",
+                "content": "825lddw"
+              },
+              {
+                "name": "item_code",
+                "title": "件号"
+              },
+              {
+                "name": "archive_1st_category",
+                "title": "一级门类编码",
+                "content": "YW"
+              },
+              {
+                "name": "category_code",
+                "title": "门类编码",
+                "content": "YW·WS"
+              },
+              {
+                "name": "classification_number",
+                "title": "类别号"
+              },
+              {
+                "name": "da_label_name",
+                "title": "标签名称"
+              }
+            ]
+          },
+          {
+            "name": "访问控制信息",
+            "property": [
+              {
+                "name": "security_class",
+                "title": "密级"
+              },
+              {
+                "name": "open_class",
+                "title": "开放等级"
+              },
+              {
+                "name": "secrecy_period",
+                "title": "保密期限"
+              },
+              {
+                "name": "released_network",
+                "title": "发布网段"
+              },
+              {
+                "name": "decryption_status",
+                "title": "解密标识"
+              }
+            ]
+          },
+          {
+            "name": "说明信息",
+            "property": [
+              {
+                "name": "retention_period",
+                "title": "保管期限",
+                "content": "C"
+              },
+              {
+                "name": "fonds_name",
+                "title": "全宗名称",
+                "content": "825立党单位"
+              },
+              {
+                "name": "original_status",
+                "title": "原件状态"
+              },
+              {
+                "name": "da_remark",
+                "title": "备注"
+              },
+              {
+                "name": "physical_archive_location",
+                "title": "实体存址号"
+              },
+              {
+                "name": "job_no",
+                "title": "工号"
+              },
+              {
+                "name": "file_year",
+                "title": "年度",
+                "content": "2022"
+              },
+              {
+                "name": "filed_by",
+                "title": "归档人"
+              },
+              {
+                "name": "archives_num",
+                "title": "归档份数",
+                "content": "1"
+              },
+              {
+                "name": "filed_date",
+                "title": "归档日期"
+              },
+              {
+                "name": "file_department",
+                "title": "归档部门"
+              },
+              {
+                "name": "doc_date",
+                "title": "形成日期"
+              },
+              {
+                "name": "description",
+                "title": "描述"
+              },
+              {
+                "name": "digitized_status",
+                "title": "数字化状态"
+              },
+              {
+                "name": "owner",
+                "title": "文件所有者"
+              },
+              {
+                "name": "exist_document",
+                "title": "是否有原文",
+                "content": "true"
+              },
+              {
+                "name": "author",
+                "title": "责任者"
+              },
+              {
+                "name": "material_num",
+                "title": "载体数量"
+              },
+              {
+                "name": "carrier_type",
+                "title": "载体类型",
+                "content": "02"
+              },
+              {
+                "name": "doc_attachments",
+                "title": "附件名称"
+              },
+              {
+                "name": "page_num",
+                "title": "页号"
+              },
+              {
+                "name": "doc_pages",
+                "title": "页数"
+              },
+              {
+                "name": "title",
+                "title": "题名",
+                "content": "12312"
+              },
+              {
+                "name": "flh",
+                "title": "分类号"
+              }
+            ]
+          },
+          {
+            "name": "管理信息"
+          }
+        ]
+      },
+      {
+        "name": "业务内容",
+        "block": [
+          {
+            "name": "过程信息"
+          },
+          {
+            "name": "内容信息",
+            "property": [
+              {
+                "name": "HH",
+                "title": "盒号"
+              },
+              {
+                "name": "WJSSRM",
+                "title": "文件所涉人名"
+              },
+              {
+                "name": "ZTC",
+                "title": "主题词"
+              },
+              {
+                "name": "GJC",
+                "title": "关键词"
+              },
+              {
+                "name": "BSMTX",
+                "title": "不扫描图像"
+              },
+              {
+                "name": "ZZJGHWT",
+                "title": "机构（问题）"
+              },
+              {
+                "name": "ZTGG",
+                "title": "载体规格"
+              },
+              {
+                "name": "QWBS",
+                "title": "全文标识"
+              },
+              {
+                "name": "KZF",
+                "title": "控制符"
+              },
+              {
+                "name": "GB",
+                "title": "稿本"
+              },
+              {
+                "name": "MLH",
+                "title": "目录号"
+              },
+              {
+                "name": "document_identifier",
+                "title": "公文标识"
+              },
+              {
+                "name": "document_type",
+                "title": "文种"
+              },
+              {
+                "name": "serial_number_of_copies",
+                "title": "份号"
+              },
+              {
+                "name": "emergency_degree",
+                "title": "紧急程度"
+              },
+              {
+                "name": "identification_of_document_issuer",
+                "title": "发文机关标志"
+              },
+              {
+                "name": "issued_number_of_document",
+                "title": "发文字号"
+              },
+              {
+                "name": "signer",
+                "title": "签发人"
+              },
+              {
+                "name": "main_receiver_department",
+                "title": "主送机关"
+              },
+              {
+                "name": "attachment",
+                "title": "附件说明"
+              },
+              {
+                "name": "signature_of_document_issuing_agency",
+                "title": "发文机关或签发人署名"
+              },
+              {
+                "name": "doc_tr_id",
+                "title": "收发文标识"
+              },
+              {
+                "name": "copy_of_department",
+                "title": "抄送机关"
+              },
+              {
+                "name": "printing_and_sending_department",
+                "title": "印发机关"
+              },
+              {
+                "name": "printing_date",
+                "title": "印发日期"
+              },
+              {
+                "name": "release_level",
+                "title": "发布层次"
+              },
+              {
+                "name": "electronic_file_identifier",
+                "title": "数字对象标识"
+              },
+              {
+                "name": "environment_information",
+                "title": "环境信息"
+              },
+              {
+                "name": "software_environment",
+                "title": "软件环境"
+              },
+              {
+                "name": "hardware_environment",
+                "title": "硬件环境"
+              },
+              {
+                "name": "disposal_type",
+                "title": "处理类型"
+              },
+              {
+                "name": "disposal_actor",
+                "title": "处理者"
+              },
+              {
+                "name": "disposal_department",
+                "title": "处理部门"
+              },
+              {
+                "name": "disposal_time",
+                "title": "处理时间"
+              },
+              {
+                "name": "disposal_result",
+                "title": "处理结果"
+              },
+              {
+                "name": "da_tag",
+                "title": "标签"
+              },
+              {
+                "name": "da_digitization",
+                "title": "是否数据化"
+              },
+              {
+                "name": "zhuanti",
+                "title": "专题"
+              },
+              {
+                "name": "lbmc",
+                "title": "类别名称"
+              },
+              {
+                "name": "ZZJGHWTCODE",
+                "title": "机构（问题）代码"
+              },
+              {
+                "name": "s_create_date",
+                "title": "创建日期"
+              },
+              {
+                "name": "XCRQ_date",
+                "title": "成文日期"
+              },
+              {
+                "name": "doc_dzwjh",
+                "title": "电子文件号"
+              },
+              {
+                "name": "FLMC",
+                "title": "分类名称"
+              },
+              {
+                "name": "CFDD",
+                "title": "存放地点"
+              },
+              {
+                "name": "YWSL",
+                "title": "原文数量"
+              },
+              {
+                "name": "QXDM",
+                "title": "期限代码"
+              },
+              {
+                "name": "ZZ",
+                "title": "指针"
+              },
+              {
+                "name": "YCZH",
+                "title": "原全宗号"
+              },
+              {
+                "name": "AJH",
+                "title": "案卷号"
+              },
+              {
+                "name": "color_label",
+                "title": "四色标签"
+              },
+              {
+                "name": "da_is_related",
+                "title": "关键词关联",
+                "content": "false"
+              },
+              {
+                "name": "sjlx",
+                "title": "数据类型"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "电子文件",
+        "block": [
+          {
+            "name": "电子收文件",
+            "expanded": true,
+            "file": [
+              {
+                "checksum_type": "md5",
+                "size": 47671,
+                "name": "wallhaven-1013-lzh-s.pdf",
+                "checksum": "70b1b3c4b2646866910b9de4a54d2e25",
+                "format": "pdf",
+                "creation_date": "2023-12-02T10:16",
+                "modify_date": "2023-12-02T10:16",
+                "url": "/3b5f15c2-fbad-4e82-8e90-82e605b70900/wallhaven-1013-lzh-s.pdf",
+                "level_flag": "电子收文件",
+                "seq": "1",
+                "property": [
+                  {
+                    "name": "file_type",
+                    "title": "材料名称",
+                    "value": "电子收文件"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "附件",
+            "expanded": true
+          },
+          {
+            "name": "公文处理单",
+            "expanded": true
+          }
+        ],
+        "policy": "WS·GW-SW",
+        "policy_version": "1"
+      }
+    ],
+    "metadata_scheme_code": "WS·A-RECORD",
+    "create_date": "2023-11-28",
+    "modify_date": "2023-11-28",
+    "template_id": "8488b9e0-d58d-44a1-bd17-c9e10d292c9f",
+    "name": "文书档案(件)",
+    "id": "6705d846-dbd9-496d-8d73-a55c9fbde344"
+  }
+}

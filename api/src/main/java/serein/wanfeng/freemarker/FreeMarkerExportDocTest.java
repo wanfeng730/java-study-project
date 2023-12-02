@@ -1,4 +1,4 @@
-package serein.wanfeng.xdocreport;
+package serein.wanfeng.freemarker;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
