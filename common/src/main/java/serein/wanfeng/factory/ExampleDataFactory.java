@@ -1,5 +1,7 @@
 package serein.wanfeng.factory;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import serein.wanfeng.entity.Archive;
 import serein.wanfeng.entity.BorrowItem;
 import serein.wanfeng.entity.ExportArchiveInfo;
@@ -31,6 +33,13 @@ public class ExampleDataFactory {
         archiveList.add(new Archive("A001", "杭州亚运会城市建设规划方案", ArchiveType.RECORD));
         archiveList.add(new Archive("A002", "义乌世博会展览主建筑设计方案", ArchiveType.RECORD));
         archiveList.add(new Archive("A003", "关于促进台州府城墙旅游景区发展的决定（换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试换行测试）", ArchiveType.VOLUME));
+
+        archiveList.add(new Archive(null, "证券日报2023-10-29", ArchiveType.RECORD));
+        archiveList.add(new Archive("A005", null, ArchiveType.VOLUME));
+        archiveList.add(new Archive("A006", "证券日报2023-11-05", null));
+
+        archiveList.add(new Archive("", "证券日报2023-10-30", ArchiveType.RECORD));
+        archiveList.add(new Archive("A007", "", ArchiveType.VOLUME));
         return archiveList;
     }
 
