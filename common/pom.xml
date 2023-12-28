@@ -18,7 +18,12 @@
     </properties>
 
     <dependencies>
-
+        <!-- 读写dbf文件依赖 -->
+        <dependency>
+            <groupId>com.github.albfernandez</groupId>
+            <artifactId>javadbf</artifactId>
+            <version>1.13.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
