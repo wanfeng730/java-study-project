@@ -1,5 +1,6 @@
 package serein.wanfeng.factory;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
@@ -11,6 +12,8 @@ import java.util.Random;
 
 public class NumberFactory {
 
+    public static final DateTimeFormatter LONG_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
 
     /**
      * 生成指定位数的随机数字符串
@@ -21,6 +24,11 @@ public class NumberFactory {
     {
         Random random = new Random();
         return String.valueOf(random.nextLong()).substring(1, length + 1);
+    }
+
+
+    public static String getCurrentDateTimeNumber(){
+        return LONG_DATE_TIME_FORMATTER.format(LocalDateTime.now());
     }
 
 }
