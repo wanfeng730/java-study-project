@@ -25,7 +25,7 @@ public class FFMPEGUtils {
     /**
      * 截取视频获得指定帧的图片
      *
-     * @param videoFile   源视频文件
+     * @param videoFile   源视频文件（可用inputStream替代）
      * @return base64
      */
     public static String fetchVideoFirstFrame2Base64(File videoFile) {
