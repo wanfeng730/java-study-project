@@ -1,4 +1,4 @@
-package serein.wanfeng.jsonpath;
+package serein.wanfeng.json;
 
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
