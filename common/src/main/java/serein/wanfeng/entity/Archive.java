@@ -1,8 +1,6 @@
 package serein.wanfeng.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import serein.wanfeng.valueobject.ArchiveType;
 
@@ -14,8 +12,6 @@ import java.io.Serializable;
  * @Description:
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class Archive implements Serializable {
 
@@ -24,4 +20,21 @@ public class Archive implements Serializable {
     private String id;
     private String name;
     private ArchiveType type;
+    private Integer sortNumber;
+
+    public Archive(String id, String name, ArchiveType type) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
+
+    public Archive(String id, String name, ArchiveType type, Integer sortNumber) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.sortNumber = sortNumber;
+    }
+
+    public Archive() {
+    }
 }
