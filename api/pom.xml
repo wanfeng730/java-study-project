@@ -176,6 +176,13 @@
             <artifactId>icepdf-core</artifactId>
             <version>6.2.2</version>
         </dependency>
+
+        <!--apache下，包含连接ftp服务器的工具-->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
