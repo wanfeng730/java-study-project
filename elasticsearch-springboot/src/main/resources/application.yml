@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: elasticsearch-springboot
+
+elasticsearch:
+  rest:
+    uris: http://elasticsearch.qa-swap.svc.cluster.local:9200
+    username: admin
+    password: admin

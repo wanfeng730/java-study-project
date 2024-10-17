@@ -18,12 +18,19 @@
         <option value="$PROJECT_DIR$/minio/pom.xml" />
         <option value="$PROJECT_DIR$/default-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/elasticsearch-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-study/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-study/dubbo-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-study/dubbo-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-study/dubbo-facade/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/default-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/redis/pom.xml" />
       </set>
     </option>

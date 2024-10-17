@@ -5,6 +5,8 @@ import lombok.ToString;
 import serein.wanfeng.valueobject.ArchiveType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Date: 2023-07-12 15:47
@@ -36,5 +38,12 @@ public class Archive implements Serializable {
     }
 
     public Archive() {
+    }
+
+    public static List<Archive> mockList() {
+        List<Archive> archiveList = new ArrayList<>();
+        archiveList.add(new Archive("1", "32", ArchiveType.RECORD));
+        archiveList.add(new Archive("2", "42", ArchiveType.VOLUME));
+        return archiveList;
     }
 }
